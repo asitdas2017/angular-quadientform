@@ -1,0 +1,50 @@
+<section class="container">
+    <section class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h2 class="display-4">Home</h2>
+        <p class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolorem recusandae natus maiores laudantium
+            accusamus aspernatur, perspiciatis explicabo! Iste ab quis amet voluptatem earum maiores fuga quas sit
+            aspernatur eveniet.
+        </p>
+    </section>
+    <div class="d-flex justify-content-center">
+        <div class="col-md-4 order-md-1">
+            <h4 class="mb-3 text-center">Create new profile</h4>
+            <form class="needs-validation" [formGroup]="createProfile" novalidate="" (ngSubmit)="submitProfile()">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" formControlName="name" id="name" placeholder="" value="" required="">
+                        <div class="invalid-feedback">
+                            Valid first name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" formControlName="email" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="country">Country</label>
+                        <select class="custom-select d-block w-100" id="country" formControlName="country" required="">
+                            <option value="">Choose...</option>
+                            <option>United States</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!createProfile.valid">Create profile</button>
+            </form>
+        </div>
+    </div>
+</section>
