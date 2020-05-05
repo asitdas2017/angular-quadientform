@@ -1,4 +1,4 @@
-import { Controller, Body, Get, Post, Put, Delete, Param } from '@nestjs/common';
+import { Controller, Body, Get, Post, Put, Delete, Param, Ip } from '@nestjs/common';
 import { CreateProfileDto } from './service-model/profile.dto';
 import { ProfileService } from './profile.service';
 import { IProfile } from './service-model/profile.interface';
