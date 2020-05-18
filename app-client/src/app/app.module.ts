@@ -9,18 +9,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/header/header.component';
 import { FooterComponent } from './modules/footer/footer.component';
-import { HomeComponent } from './modules/home/home.component';
+import { CreateProfileComponent } from './modules/profile/create-profile/create-profile.component';
 import { SharedComponent } from './shared/shared.component';
 import { ProfileComponent } from './modules/profile/profile.component';
-import { ProfileService } from './shared/services/profile.service';
 import { DeleteProfileComponent } from './modules/profile/delete-profile/delete-profile.component';
+
+import { ProfileService } from './shared/services/profile.service';
+import { CountryService } from './shared/services/country.service';
+import { ProfileResolverService } from './shared/services/profile.resolver.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
+    CreateProfileComponent,
     SharedComponent,
     ProfileComponent,
     DeleteProfileComponent
@@ -33,7 +36,7 @@ import { DeleteProfileComponent } from './modules/profile/delete-profile/delete-
     NgbModule,
     HttpClientModule
   ],
-  providers: [ProfileService],
+  providers: [ProfileService, CountryService, ProfileResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

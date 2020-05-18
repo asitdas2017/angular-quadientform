@@ -3,8 +3,8 @@
         <h2 class="display-4">Profile</h2>
         <p class="lead">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolorem recusandae natus maiores laudantium
-            accusamus aspernatur, perspiciatis explicabo! Iste ab quis amet voluptatem earum maiores fuga quas sit
-            aspernatur eveniet.
+            accusamus aspernatur, perspiciatis explicabo!<br /><br />
+            <button type="button" class="btn btn-primary" [routerLink]="'/home'">Create new profile</button>
         </p>
     </section>
     <section>
@@ -25,7 +25,7 @@
                 <td>{{profile.country}}</td>
                 <td>{{profile.email}}</td>
                 <td>
-                  <button type="button" class="btn btn-outline-primary btn-sm">Edit</button>
+                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="editProfile(profile._id)">Edit</button>
                   <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteModal(profile._id)">Delete</button>
                 </td>
               </tr>

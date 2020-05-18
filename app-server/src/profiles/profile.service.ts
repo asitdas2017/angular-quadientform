@@ -16,7 +16,7 @@ export class ProfileService {
 
     async findOne(id: string):  Promise<IProfile> {
         // return this.profiles.find(profile => profile.id === id)
-        return this.profileModel.find({_id: id});
+        return this.profileModel.findOne({_id: id});
     };
 
     async create(profile: IProfile): Promise<IProfile[]> {

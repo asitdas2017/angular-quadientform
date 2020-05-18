@@ -1,10 +1,9 @@
 <section class="container">
-    <section class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h2 class="display-4">Home</h2>
+    <section class="pricing-header px-3 py-3 pt-md-5 pb-md-1 mx-auto text-center">
+        <h2 class="display-4">Profile</h2>
         <p class="lead">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolorem recusandae natus maiores laudantium
-            accusamus aspernatur, perspiciatis explicabo! Iste ab quis amet voluptatem earum maiores fuga quas sit
-            aspernatur eveniet.
+            accusamus aspernatur, perspiciatis explicabo!
         </p>
     </section>
     <div class="d-flex justify-content-center">
@@ -35,7 +34,7 @@
                         <label for="country">Country</label>
                         <select class="custom-select d-block w-100" id="country" formControlName="country" required="">
                             <option value="">Choose...</option>
-                            <option>United States</option>
+                            <option *ngFor="let cnt of countryList" value="{{cnt.name}}">{{cnt.name}}</option>
                         </select>
                         <div class="invalid-feedback">
                             Please select a valid country.

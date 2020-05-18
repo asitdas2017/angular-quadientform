@@ -1,5 +1,5 @@
 export interface IProfile {
-    id?: number;
+    _id?: string;
     name: string;
     email: string;
     country: string;

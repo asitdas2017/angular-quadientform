@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, retry } from 'rxjs/operators';
 import { IProfile } from './../models/profile.interface';
 
 @Injectable()
 export class ProfileService{
 
     profileApiURL = 'http://localhost:3000/profiles';
-    headers = new HttpHeaders().set('Content-Type', 'application/json');
+    headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     // params = new HttpParams().set("paramName",paramValue).set("paramName2", paramValue2); //Create new HttpParams
 
     constructor(private http: HttpClient){}
@@ -36,7 +36,9 @@ export class ProfileService{
     // Get Single profile based on ID
     getProfile(id: string): Observable<IProfile> {
         const findOneURL = `${this.profileApiURL}/${id}`;
-        return this.http.get<IProfile>(findOneURL, {headers: this.headers});
+        return this.http.get<IProfile>(findOneURL, {headers: this.headers}).pipe(
+            catchError(this.handleError)
+        );
     }
 
     // Create new profile and submit to the server
@@ -46,7 +48,9 @@ export class ProfileService{
 
     // Edit profile information
     editProfile(id: string, profileUpdatedData: IProfile): Observable<IProfile> {
-        return this.http.put<IProfile>(this.profileApiURL, profileUpdatedData);
+        return this.http.put<IProfile>(this.profileApiURL, profileUpdatedData).pipe(
+            catchError(this.handleError)
+        );
     }
 
     // Delete profile
