@@ -48,7 +48,8 @@ export class ProfileService{
 
     // Edit profile information
     editProfile(id: string, profileUpdatedData: IProfile): Observable<IProfile> {
-        return this.http.put<IProfile>(this.profileApiURL, profileUpdatedData).pipe(
+        const editURL = `${this.profileApiURL}/${id}`;
+        return this.http.put<IProfile>(editURL, profileUpdatedData).pipe(
             catchError(this.handleError)
         );
     }

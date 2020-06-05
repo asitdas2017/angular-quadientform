@@ -1,24 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './modules/home/home.component';
 import { CreateProfileComponent } from './modules/profile/create-profile/create-profile.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { ProfileResolverService } from './shared/services/profile.resolver.service';
-
+import { UnsavedChangesGuard } from './guards/unsaved-changes.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    component: CreateProfileComponent
-  },
-  {
-    path: 'edit/:id',
-    component: CreateProfileComponent
+    component: HomeComponent,
   },
   {
     path: 'profile',
     component: ProfileComponent,
     resolve: { profileListResolve: ProfileResolverService }
-
+  },
+  {
+    path: 'addprofile',
+    component: CreateProfileComponent,
+    canDeactivate: [UnsavedChangesGuard]
+  },
+  {
+    path: 'editprofile/:id',
+    component: CreateProfileComponent,
+    canDeactivate: [UnsavedChangesGuard]
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }

@@ -8,7 +8,7 @@
     </section>
     <div class="d-flex justify-content-center">
         <div class="col-md-4 order-md-1 pb-md-5">
-            <h4 class="mb-3 text-center">Create new profile</h4>
+            <h4 class="mb-3 text-center">{{routeHeading}}</h4>
             <form class="needs-validation" [formGroup]="createProfile" novalidate="" (ngSubmit)="submitProfile()">
                 <div class="row">
                     <div class="col-md-12 mb-3">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!createProfile.valid">Create profile</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!createProfile.valid">{{routeHeading}}</button>
             </form>
         </div>
     </div>

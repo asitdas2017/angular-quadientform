@@ -17,6 +17,8 @@ import { DeleteProfileComponent } from './modules/profile/delete-profile/delete-
 import { ProfileService } from './shared/services/profile.service';
 import { CountryService } from './shared/services/country.service';
 import { ProfileResolverService } from './shared/services/profile.resolver.service';
+import { UnsavedChangesGuard } from './guards/unsaved-changes.guard';
+import { HomeComponent } from './modules/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ProfileResolverService } from './shared/services/profile.resolver.servi
     CreateProfileComponent,
     SharedComponent,
     ProfileComponent,
-    DeleteProfileComponent
+    DeleteProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { ProfileResolverService } from './shared/services/profile.resolver.servi
     NgbModule,
     HttpClientModule
   ],
-  providers: [ProfileService, CountryService, ProfileResolverService],
+  providers: [ProfileService, CountryService, ProfileResolverService, UnsavedChangesGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,15 +35,15 @@ export class ProfileComponent implements OnInit {
   }
 
   editProfile(id: string): void {
-    this.router.navigate(['/edit', id]);
+    this.router.navigate(['/editprofile', id]);
   }
 
   deleteModal(id: string) {
     const modalRef = this.modalService.open(DeleteProfileComponent);
     modalRef.componentInstance.userId = id;
     modalRef.componentInstance.deletedCnf.subscribe(data => {
-      // console.log(data);
-      // this.getAllProfiles();
+      console.log(data);
+      this.getAllProfiles();
     });
   }
 
