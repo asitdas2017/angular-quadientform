@@ -7,7 +7,8 @@
             <button type="button" class="btn btn-primary" [routerLink]="'/addprofile'">Create new profile</button>
         </p>
     </section>
-    <section>
+    <section class="px-3 py-3 pt-md-3 pb-md-4 mx-auto">
+      <div class="table-responsive-md d-none d-md-block">
         <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -21,7 +22,7 @@
             <tbody>
               <tr *ngFor="let profile of profiles; let i = index">
                 <td scope="row">{{i+1}}</td>
-                <td>{{profile.name}}</td>
+                <td><a title="{{profile.name}}" [routerLink]="'/home'" ng-href="#">{{profile.name}}</a></td>
                 <td>{{profile.country}}</td>
                 <td>{{profile.email}}</td>
                 <td>
@@ -31,8 +32,44 @@
               </tr>
             </tbody>
           </table>
+        </div>
+        <div class="table-responsive-sm d-md-none">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let profile of profiles; let i = index">
+                <td scope="row">{{i+1}}</td>
+                <td><a title="{{profile.name}}" [routerLink]="'/home'" ng-href="#">{{profile.name}}</a></td>
+                <td>
+                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="editProfile(profile._id)">Edit</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteModal(profile._id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
     </section>
     <ng-template #content let-modal>
       <app-deleteprofile></app-deleteprofile>
     </ng-template>
+
 </section>

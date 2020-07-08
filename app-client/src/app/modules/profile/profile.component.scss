@@ -3,14 +3,22 @@
         th{
             &:nth-child(1){width: 50px;}
             &:nth-child(2){width: 200px;}
-            &:nth-child(3){width: 200px;}
-            &:nth-child(5){text-align: center; width: 140px;}
+            &:nth-child(3){width: 160px;}
+            &:nth-child(5){text-align: center; width: 160px;}
         }
         td{ 
             vertical-align: middle;
+            &:nth-child(2){
+                text-align: left;
+                a{
+                    padding: 0.25rem 0.5rem;
+                    margin-left: -0.5rem;
+                }
+            }
             &:nth-child(5){
+                text-align: center;
                 button{
-                    margin-left: 5px;;
+                    margin-left: 5px;
                 }
             }
         }
@@ -19,6 +27,23 @@
         }
         &:last-child{
             border-bottom: 1px solid #dee2e6;
+        }
+    }
+}
+.table-responsive-sm {
+    .table{
+        tr {
+            th{
+                &:nth-child(3){text-align: center; width: auto;}
+            }
+            td{
+                &:nth-child(3){
+                    text-align: right;
+                    white-space: nowrap;
+                    button{
+                        margin-left: 5px;
+                    }}
+            }
         }
     }
 }
