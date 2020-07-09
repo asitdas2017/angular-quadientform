@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --prod",
+    "build:mac": "rm -rf ../app-server/public && mkdir ../app-server/public && ng build --prod && mv dist/app-client/* ../app-server/public/",    
+    "build:win": "(if exist ..\\app-server\\public rmdir ..\\app-server\\public /s /q) && ng build --prod && move dist/app-client ..\\app-server\\public"
   },
   "engines": {
     "node": "12.16.1",

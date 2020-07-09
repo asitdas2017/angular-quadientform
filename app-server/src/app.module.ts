@@ -6,9 +6,20 @@ import { ProfileModule } from './profiles/profile.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
 @Module({
-  imports: [ProfileModule, MongooseModule.forRoot(config.mongoURI)],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
+    MongooseModule.forRoot(config.mongoURI),
+    ProfileModule
+  ],
+  // controllers: [AppController],
+  controllers: [],
+  // providers: [AppService],
+  providers: [],
 })
 export class AppModule { }
