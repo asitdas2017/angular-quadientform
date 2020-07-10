@@ -7,7 +7,10 @@
             <button type="button" class="btn btn-primary" [routerLink]="'/addprofile'">Create new profile</button>
         </p>
     </section>
-    <section class="px-3 py-3 pt-md-3 pb-md-4 mx-auto">
+
+    <section *ngIf="serviceErr"  class="alert alert-danger" role="alert">{{serviceErr}}</section>
+    
+    <section class="px-3 py-3 pt-md-3 pb-md-4 mx-auto" *ngIf="!serviceErr">      
       <div class="table-responsive-md d-none d-md-block">
         <table class="table">
             <thead class="thead-dark">

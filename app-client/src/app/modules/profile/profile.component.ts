@@ -14,18 +14,27 @@ import { IProfile } from './../../shared/models/profile.interface';
 export class ProfileComponent implements OnInit {
 
   profiles: IProfile[];
+  serviceErr: string;
 
   constructor(
     private profileService: ProfileService,
     private router: Router,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private modalService: NgbModal
     ) {
-      this.profiles = this.route.snapshot.data.profileListResolve;
+      // this.profiles = this.activatedRoute.snapshot.data.profileListResolve;
+      const resolveData: IProfile[] | string = this.activatedRoute.snapshot.data.profileListResolve;
+      if (Array.isArray(resolveData)) {
+        this.profiles = resolveData;
+        console.log(resolveData);
+      } else {
+        this.serviceErr = resolveData;
+        console.log(resolveData);
+      }
     }
 
   ngOnInit(): void {
-    console.log(this.profiles);
+    // console.log(this.profiles);
   }
 
   getAllProfiles() {

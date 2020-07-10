@@ -15,13 +15,13 @@ export class ProfileService{
 
     // Error Handling for HTTP request
     private handleError(httpErrorResponse: HttpErrorResponse) {
-        let errorMessage = 'Unknown error!';
+        let errorMessage = 'APP Unknown error!';
         if (httpErrorResponse.error instanceof ErrorEvent){
             // Client-side errors
-            errorMessage = `Error: ${httpErrorResponse.error.message}`;
+            errorMessage = `APP Error: ${httpErrorResponse.error.message}`;
         } else {
             // Server-side errors
-            errorMessage = `\nError code: ${httpErrorResponse.status}\nMessage: ${httpErrorResponse.message}`;
+            errorMessage = `Error code: ${httpErrorResponse.status} "${httpErrorResponse.message}"`;
         }
         return throwError(errorMessage);
     }
