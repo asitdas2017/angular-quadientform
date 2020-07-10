@@ -7,7 +7,7 @@ import { IProfile } from './../models/profile.interface';
 @Injectable()
 export class ProfileService{
 
-    profileApiURL = 'http://localhost:3000/profiles';
+    profileApiURL = 'profiles';
     headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     // params = new HttpParams().set("paramName",paramValue).set("paramName2", paramValue2); //Create new HttpParams
 
